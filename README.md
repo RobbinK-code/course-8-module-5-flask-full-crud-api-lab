@@ -171,3 +171,43 @@ After completing this lab, you will:
 ✅ Return proper HTTP status codes and structured responses  
 
 This is a critical step in your backend developer journey. Next up: persistent databases!
+
+## API Routes
+
+- `POST /events`
+  - Create a new event.
+  - Request body: `{ "title": "Hackathon" }`
+  - Response: `201 Created` with the new event object.
+
+- `PATCH /events/<id>`
+  - Update an existing event title.
+  - Request body: `{ "title": "Hackathon 2025" }`
+  - Response: `200 OK` with the updated event object.
+
+- `DELETE /events/<id>`
+  - Remove an event from the list.
+  - Response: `204 No Content` when successful.
+
+## Example Requests
+
+Create event:
+
+```bash
+curl -X POST http://localhost:5000/events \
+  -H "Content-Type: application/json" \
+  -d '{"title": "Hackathon"}'
+```
+
+Update event:
+
+```bash
+curl -X PATCH http://localhost:5000/events/1 \
+  -H "Content-Type: application/json" \
+  -d '{"title": "Hackathon 2025"}'
+```
+
+Delete event:
+
+```bash
+curl -X DELETE http://localhost:5000/events/2
+```
